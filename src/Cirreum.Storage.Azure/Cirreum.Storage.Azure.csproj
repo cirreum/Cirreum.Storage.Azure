@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<RootNamespace>Cirreum.Storage</RootNamespace>
+		<Description>The Cirreum cloud storage library for Azure Storage.</Description>
+		<PackageTags>cirreum;storage;azure</PackageTags>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Azure.Identity" Version="1.17.1" />
+		<PackageReference Include="Azure.Storage.Blobs" Version="12.26.0" />
+		<PackageReference Include="Cirreum.Storage" Version="1.0.102" />
+		<PackageReference Include="Cirreum.ServiceProvider" Version="1.0.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Using Include="Azure.Core" />
+		<Using Include="Azure.Identity" />
+		<Using Include="Azure.Storage.Blobs" />
+		<Using Include="Azure.Storage.Blobs.Models" />
+		<Using Include="Cirreum.Providers" />
+		<Using Include="Cirreum.Storage" />
+	</ItemGroup>
+
+</Project>
