@@ -53,7 +53,7 @@ internal sealed class AzureBlobStorageClient(
 		string prefix,
 		CancellationToken token = default) {
 		var containerClient = client.GetBlobContainerClient(containerId);
-		await foreach (var blobItem in containerClient.GetBlobsAsync(prefix: prefix, cancellationToken: token)) {
+		await foreach (var blobItem in containerClient.GetBlobsAsync(new() { Prefix = prefix }, cancellationToken: token)) {
 			await containerClient.DeleteBlobIfExistsAsync(blobItem.Name, DeleteSnapshotsOption.IncludeSnapshots, cancellationToken: token);
 		}
 	}
