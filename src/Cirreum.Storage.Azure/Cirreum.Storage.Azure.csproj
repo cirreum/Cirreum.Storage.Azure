@@ -14,7 +14,7 @@
 		<PackageReference Include="Azure.Identity" Version="1.21.0" />
 		<PackageReference Include="Azure.Storage.Blobs" Version="12.27.0" />
 		<PackageReference Include="Cirreum.Storage" Version="1.0.106" />
-		<PackageReference Include="Cirreum.ServiceProvider" Version="1.0.14" />
+		<PackageReference Include="Cirreum.ServiceProvider" Version="1.0.15" />
 	</ItemGroup>
 
 	<ItemGroup>
