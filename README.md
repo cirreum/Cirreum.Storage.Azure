@@ -157,6 +157,23 @@ public class FileService
 }
 ```
 
+## Identity-Based Authentication
+
+Set the connection value to the blob service URI (for example `https://{account}.blob.core.windows.net`) instead of a connection string and the provider authenticates with Entra. The nested `Credential` block (shared across Cirreum providers) selects how:
+
+```json
+"Credential": { "Mode": "ManagedIdentity", "IdentityId": "<user-assigned-client-id>" }
+```
+
+- **Default** — `DefaultAzureCredential`; `IdentityId` pins the chain's managed-identity leg
+- **ManagedIdentity** — deterministic `ManagedIdentityCredential`; omit `IdentityId` for system-assigned
+- **Developer** — Visual Studio → Azure CLI → Azure PowerShell, as the signed-in developer
+
+`Identifier` sets the Entra tenant for the tenant-aware credentials. Omitting the block entirely
+means `Default`. A `Credential` block alongside a key-based connection string fails at startup —
+identity configuration cannot apply to key authentication. The identity needs the service's
+data-plane RBAC role (for example *Storage Blob Data Contributor*).
+
 ## Contribution Guidelines
 
 1. **Be conservative with new abstractions**  
